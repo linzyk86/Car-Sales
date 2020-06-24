@@ -5,14 +5,11 @@ import {addFeature} from '../actions/actions';
 
 const AdditionalFeature = props => {
   return (
-    <li>
-      {/* Add an onClick that will let you add a feature to your car */}
+    <li><button onClick={() => {
+            props.addFeature(props.feature);
+          }}className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
-
-      <button onClick={() => {
-            props.addFeature(props.addFeature);
-          }}
-          className="button">Add</button>
+      
     </li>
   );
 };
@@ -20,7 +17,7 @@ const AdditionalFeature = props => {
 ////Defines what values our component reads from application store
 const mapStateToProps = state => {
  return {
-   feature: state.additionalFeatures,
+   //feature: state.additionalFeatures,
   };
 };
 //Defines what actions our component calls to update store

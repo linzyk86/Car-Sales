@@ -25,12 +25,16 @@ export const reducer = (state = initialState, action) =>{
 
     switch(action.type){
         case ADD_FEATURE:
+            console.log('addFeature');
+    console.log(action.payload);
             return {
-              ...state, additionalFeatures: ''
+              ...state, car: {...state.car, features:[...state.car.features, action.payload]}
             };
         case REMOVE_FEATURE:
             return {
-              ...state, additionalFeatures: ''
+              ...state, car:{...state.car, features: state.car.features.filter((feature)=>{
+                return feature.id === action.payload.id
+              })}
             };
         default:
             return state;

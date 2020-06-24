@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import AddedFeature from './AddedFeature';
-import {useSelector} from 'react-redux';
 
 export const AddedFeatures = props => {
   return (
@@ -19,7 +18,19 @@ export const AddedFeatures = props => {
     </div>
   );
 };
+//Defines what values our component reads from application store
+const mapStateToProps = state => {
+ return {
+   features: state.features,
+   car: state.car
+  };
+};
+
+//Defines what actions our component calls to update store
+const mapDispatchToProps = { };//actions
+
+export default connect(mapStateToProps, mapDispatchToProps
+)(AddedFeatures);
 
 
-
-export default AddedFeatures;
+//export default AddedFeatures;

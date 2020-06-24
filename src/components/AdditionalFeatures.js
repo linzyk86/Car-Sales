@@ -19,5 +19,18 @@ const AdditionalFeatures = props => {
   );
 };
 
+////Defines what values our component reads from application store
+const mapStateToProps = state => {
+ return {
+   additionalFeatures: state.additionalFeatures,
+   feature: state.feature
+  };
+};
+//Defines what actions our component calls to update store
+const mapDispatchToProps = {};//actions
 
-export default AdditionalFeatures;
+export default connect(mapStateToProps, mapDispatchToProps
+)(AdditionalFeatures);
+
+
+//export default AdditionalFeatures;
